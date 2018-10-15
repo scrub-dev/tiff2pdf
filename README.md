@@ -8,3 +8,6 @@ It creates duplicates of all files and only copies the files, not directly editi
 As I dont use TIFF or PDF Files often there are bound to be bugs as I dont have that many TIFF Files on hand other then the examples one I had to make sure it worked. 
 
 This is nothing special, just an intuitive, easy to use tool to make your life a little easier!
+
+
+[Link to Executable Binary](https://github.com/Scott-Donaldson/tiff2pdf/releases)
