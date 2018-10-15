@@ -71,24 +71,23 @@ namespace Tiff2PDF
         {
             chooseTiffDir();
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_PdfDir_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_convert_Click(object sender, EventArgs e)
         {
             for(int i = 0; i < tiffFiles.Length; i++)
             {
                 try
                 {
-                    ConvertTiffToPdf(tiffDir+"/"+lbx_tiffFiles.Items[i].ToString(), lbx_tiffFiles.Items[i].ToString());
+                    string[] pdfFile = lbx_tiffFiles.Items[i].ToString().Split('.');
+                    string exists = tiffDir + "/" + pdfFile[0] + ".pdf";
+                    if (File.Exists(exists))
+                    {
+                        Rtb_output.AppendText("\n" + lbx_tiffFiles.Items[i].ToString() + ".pdf already exists. Skipping!");
+                        continue;
+                    }
+                    else
+                    {
+                        ConvertTiffToPdf(tiffDir + "/" + lbx_tiffFiles.Items[i].ToString(), lbx_tiffFiles.Items[i].ToString());
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -105,17 +104,10 @@ namespace Tiff2PDF
             string[] FileName = fileName.Split('.');
             do
             {
-                pdfFile = Path.GetDirectoryName(tiffFileName) + Path.DirectorySeparatorChar +
-                    FileName[0] + ".pdf";
+                pdfFile = Path.GetDirectoryName(tiffFileName) + Path.DirectorySeparatorChar + FileName[0] + ".pdf";
             } while (File.Exists(pdfFile));
-            if (File.Exists(pdfFile))
-            {
-                File.Delete(pdfFile);
-            }
-            if (!File.Exists(tiffFileName))
-            {
-                return null;
-            }
+            if (File.Exists(pdfFile)){File.Delete(pdfFile);}
+            if (!File.Exists(tiffFileName)){return null;}
 
             Bitmap bmp = new Bitmap(tiffFileName);
 
@@ -127,10 +119,8 @@ namespace Tiff2PDF
 
             try
             {
-
                 // creation of the different writers
-                PdfWriter writer = PdfWriter.GetInstance(document,
-                    new FileStream(pdfFile, FileMode.Create));
+                PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(pdfFile, FileMode.Create));
 
                 // Which of the multiple images in the TIFF file do we want to load
                 // 0 refers to the first, 1 to the second and so on.
@@ -152,7 +142,7 @@ namespace Tiff2PDF
                 document = null;
                 bmp.Dispose();
                 bmp = null;
-                Rtb_output.AppendText("\n"+FileName+" Converted");
+                Rtb_output.AppendText("\n"+FileName[0]+" Converted");
 
             }
             catch (Exception ex)
@@ -161,7 +151,6 @@ namespace Tiff2PDF
                 MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
-
             return pdfFile;
         }
         private byte[] BitmapToBytes(Bitmap bmp)

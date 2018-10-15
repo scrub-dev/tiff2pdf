@@ -73,7 +73,6 @@
             this.txt_tiffDir.Name = "txt_tiffDir";
             this.txt_tiffDir.Size = new System.Drawing.Size(166, 20);
             this.txt_tiffDir.TabIndex = 3;
-            this.txt_tiffDir.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lbx_tiffFiles
             // 
