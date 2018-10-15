@@ -1,0 +1,10 @@
+D:\Software Development\c#\Tiff2PDF\Tiff2PDF\bin\Release\Tiff2PDF.exe.config
+D:\Software Development\c#\Tiff2PDF\Tiff2PDF\bin\Release\Tiff2PDF.exe
+D:\Software Development\c#\Tiff2PDF\Tiff2PDF\bin\Release\Tiff2PDF.pdb
+D:\Software Development\c#\Tiff2PDF\Tiff2PDF\obj\Release\Tiff2PDF.mainForm.resources
+D:\Software Development\c#\Tiff2PDF\Tiff2PDF\obj\Release\Tiff2PDF.Properties.Resources.resources
+D:\Software Development\c#\Tiff2PDF\Tiff2PDF\obj\Release\Tiff2PDF.csproj.GenerateResource.cache
+D:\Software Development\c#\Tiff2PDF\Tiff2PDF\obj\Release\Tiff2PDF.csproj.CoreCompileInputs.cache
+D:\Software Development\c#\Tiff2PDF\Tiff2PDF\obj\Release\Tiff2PDF.exe
+D:\Software Development\c#\Tiff2PDF\Tiff2PDF\obj\Release\Tiff2PDF.pdb
+D:\Software Development\c#\Tiff2PDF\Tiff2PDF\obj\Release\Tiff2PDF.csprojAssemblyReference.cache
